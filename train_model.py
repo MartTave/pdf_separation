@@ -78,7 +78,7 @@ except ValueError as e:
 
 
 # Create data loaders to batch data from RAM to GPU
-num_workers = min(4, os.cpu_count())
+num_workers = max(4, os.cpu_count())
 print(f"Using {num_workers} workers for data loading.")
 
 train_loader = DataLoader(

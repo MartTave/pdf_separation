@@ -125,8 +125,8 @@ def process_and_save_shards(dataset, output_dir, shard_size):
                 img2 = preprocess_image(pair[1])
 
                 if img1 is not None and img2 is not None:
-                    # Stack images into a 2-channel tensor (H, W, C)
-                    combined_image = np.stack((img1, img2), axis=-1)
+                    # Stack images into a 2-channel tensor (C, H, W)
+                    combined_image = np.stack((img1, img2), axis=0)
                     processed_data.append(torch.from_numpy(combined_image))
                     processed_labels.append(label)
             except Exception as e:
