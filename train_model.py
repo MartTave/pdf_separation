@@ -112,9 +112,6 @@ for epoch in range(NUM_EPOCHS):
         # Move batch to GPU
         inputs, labels = inputs.to(device), labels.to(device)
 
-        # Permute from (N, H, W, C) to (N, C, H, W)
-        inputs = inputs.permute(0, 3, 1, 2)
-
         optimizer.zero_grad()
         outputs = model(inputs)
         loss = criterion(outputs, labels)
@@ -136,9 +133,6 @@ for epoch in range(NUM_EPOCHS):
         for inputs, labels in test_loader:
             # Move batch to GPU
             inputs, labels = inputs.to(device), labels.to(device)
-
-            # Permute from (N, H, W, C) to (N, C, H, W)
-            inputs = inputs.permute(0, 3, 1, 2)
 
             outputs = model(inputs)
             predicted = (torch.sigmoid(outputs) > 0.5).float()
