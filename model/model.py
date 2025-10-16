@@ -20,7 +20,7 @@ class AlexNetAtHome(nn.Module):
         predictorInputSize = 1620
 
         self.features = nn.Sequential(
-            nn.Conv2d(3, firstLayerSize, kernel_size=11, stride=4, padding=2),
+            nn.Conv2d(2, firstLayerSize, kernel_size=11, stride=4, padding=2),
             nn.BatchNorm2d(firstLayerSize),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),
