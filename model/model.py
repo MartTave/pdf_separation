@@ -17,7 +17,7 @@ class AlexNetAtHome(nn.Module):
         fourthLayerSize = 60
         fifthLayerSize = 45
         # Calculate the input size of the predictor layer, this is the size of the last layer of the features flattenend
-        predictorInputSize = 1620
+        predictorInputSize = 9180
 
         self.features = nn.Sequential(
             nn.Conv2d(2, firstLayerSize, kernel_size=11, stride=4, padding=2),
